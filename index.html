@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body style="font-family: Arial; background-color: #f2f2f2; text-align:center; padding-top:50px;">
+
+    <h2 style="color:#333;">User Registration Form</h2>
+
+    <form action="/submit" method="POST" onsubmit="return validateForm()" 
+          style="background:white; padding:20px; width:300px; margin:auto; border-radius:10px; box-shadow:0px 0px 10px gray;">
+
+        <input type="text" id="name" name="name" placeholder="Enter Name"
+               style="width:90%; padding:8px; margin:10px;"><br>
+
+        <input type="email" id="email" name="email" placeholder="Enter Email"
+               style="width:90%; padding:8px; margin:10px;"><br>
+
+        <input type="number" id="age" name="age" placeholder="Enter Age"
+               style="width:90%; padding:8px; margin:10px;"><br>
+
+        <button type="submit"
+                style="background-color:blue; color:white; padding:10px 20px; border:none; border-radius:5px;">
+            Submit
+        </button>
+    </form>
+
+    <script>
+        function validateForm() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let age = document.getElementById("age").value;
+
+            if (name === "" || email === "" || age === "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+
+            if (!email.includes("@")) {
+                alert("Please enter a valid email");
+                return false;
+            }
+
+            if (age <= 0) {
+                alert("Please enter valid age");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+</body>
+</html>
